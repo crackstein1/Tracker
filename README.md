@@ -34,3 +34,12 @@ Die App enthält keine externe Video-API. Die Videolinks öffnen YouTube-Suchanf
 Neue Navigation **Lifestyle** mit Gewicht (wöchentlich oder täglich, Grafik, 7-Tage-Schnitt), Supplement-Checkliste, 13 Rezepten und eingebetteter Original-PDF `mealplan.pdf`. Gym und Gewicht sind bewusst nicht an Uni-XP gekoppelt. Neue Einträge werden im bisherigen lokalen Datensatz gespeichert und im JSON-Backup exportiert. Ältere Backups bleiben importierbar.
 
 **Wichtig beim Update:** Alle Dateien inklusive `mealplan.pdf` hochladen und vorher ein JSON-Backup exportieren. Der Service Worker hat einen neuen Cache-Namen; ggf. die PWA nach dem Update einmal neu öffnen. Die Rezept-Kalorien sind ungeprüfte Näherungen aus der PDF. Das neue Gulasch hat bewusst keinen errechneten Kalorienwert. D3/K2 wird nach einem frei einstellbaren Startdatum alle zwei Tage angezeigt.
+
+
+## v1.2: Abhakbare Tages-Timeline
+
+Die Startseite und Wochenansicht enthalten jetzt einen Tagesablauf mit manuell abhackbarer Checkliste (ohne XP), groben Uhrzeiten, automatischer Markierung der laufenden Aktivität und A/B-Wochen. Die Zeiten sind **Richtwerte**, keine verbindlichen Kalendertermine. Die Fortschritte werden im bestehenden lokalen Backup unter `routineDone` gespeichert.
+
+### Push-Benachrichtigungen
+
+Noch **nicht implementiert**. iOS unterstützt Web Push für zum Home-Bildschirm hinzugefügte PWAs (ab iOS 16.4). Für zeitgesteuerte Benachrichtigungen bei geschlossener App benötigt man zusätzlich einen Push-Versanddienst/Server (z. B. einen kleinen Cloudflare Worker plus Scheduler), Push-Subscription, VAPID-Schlüssel und eine explizite Erlaubnis des Nutzers. GitHub Pages allein reicht nicht.
